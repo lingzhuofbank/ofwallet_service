@@ -1,0 +1,31 @@
+{
+	"comment": "",
+	"ignore": "test",
+	"package": [
+		{
+			"checksumSHA1": "QVm4f8kwSqmHuYG/NOaouBE51L0=",
+			"path": "github.com/ethereum/go-ethereum/common/hexutil",
+			"revision": "a7efd6f2b42112a8a74c24808252e23eeac6f225",
+			"revisionTime": "2018-06-28T03:12:55Z"
+		},
+		{
+			"checksumSHA1": "MQn3xdw3WqIm3iA7t18nn8mLTL8=",
+			"path": "github.com/ethereum/go-ethereum/common/math",
+			"revision": "a7efd6f2b42112a8a74c24808252e23eeac6f225",
+			"revisionTime": "2018-06-28T03:12:55Z"
+		},
+		{
+			"checksumSHA1": "VsqOiLFDRSDa67wPeqlxKJmE0XE=",
+			"path": "github.com/ethereum/go-ethereum/crypto/secp256k1",
+			"revision": "a7efd6f2b42112a8a74c24808252e23eeac6f225",
+			"revisionTime": "2018-06-28T03:12:55Z"
+		},
+		{
+			"checksumSHA1": "pQzUVRi0z/3Z4FpRyExSg1ROLSA=",
+			"path": "github.com/ethereum/go-ethereum/crypto/sha3",
+			"revision": "a7efd6f2b42112a8a74c24808252e23eeac6f225",
+			"revisionTime": "2018-06-28T03:12:55Z"
+		}
+	],
+	"rootPath": "github.com/ofbank/lib/wallet_sdk"
+}
