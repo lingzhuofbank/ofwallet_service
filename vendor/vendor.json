@@ -6,7 +6,19 @@
 			"checksumSHA1": "071uyK+WOfj4/M3A3tnPZQdfgYU=",
 			"path": "github.com/ofbank/lib",
 			"revision": ""
+		},
+		{
+			"checksumSHA1": "l5PqW07HU3/c90XkZss+ZWpi0iI=",
+			"path": "github.com/tidwall/gjson",
+			"revision": "87033efcaec6215741137e8ca61952c53ef2685d",
+			"revisionTime": "2018-01-23T12:45:05Z"
+		},
+		{
+			"checksumSHA1": "eq08pJz4K+i3qiS39A7ENDBMoF0=",
+			"path": "github.com/valyala/fasthttp",
+			"revision": "e5f51c11919d4f66400334047b897ef0a94c6f3c",
+			"revisionTime": "2017-12-07T12:09:41Z"
 		}
 	],
-	"rootPath": "github.com/douliao_service"
+	"rootPath": "github.com/ofwallet_service"
 }

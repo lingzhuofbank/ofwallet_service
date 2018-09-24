@@ -29,12 +29,12 @@ func CreateLogger() {
 }
 
 
-func ErrorLogger(message string){
+func ErrorLogger(message interface{}){
 	pc,_,line,_:=runtime.Caller(1)
-	Logger.Error(message,"function",runtime.FuncForPC(pc).Name(),"line",line)
+	Logger.Error(message,"function: ",runtime.FuncForPC(pc).Name(),"line: ",line)
 }
 
 func NoticeLooger(message string){
 	pc,_,line,_:=runtime.Caller(1)
-	Logger.Notice(message,"function",runtime.FuncForPC(pc).Name(),"line",line)
+	Logger.Notice(message,"function: ",runtime.FuncForPC(pc).Name(),"line: ",line)
 }

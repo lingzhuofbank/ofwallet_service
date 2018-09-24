@@ -10,3 +10,8 @@ type CreateAddressResponse struct {
 	PrivateKey string `json:"private_key"`
 	Address    string `json:"address"`
 }
+
+type BalacneResponse struct {
+	OFBalance  string 	`json:"of_balance"`
+	TokenBalance string  `json:"token_balance"`
+}
