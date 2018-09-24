@@ -53,13 +53,12 @@ func SendTransaction(w http.ResponseWriter, r *http.Request) (*types.ResponseMod
 func CheckBalce(w http.ResponseWriter, r *http.Request) (*types.ResponseModel, error) {
 	address := r.FormValue("address")
 	contranctAddress := r.FormValue("contract_address")
-
 	balance, tokenBalance, err := wallet_service.CheckBalance(address, contranctAddress)
 	if err != nil {
 		return nil, err
 	}
 	reponse := &types.ResponseModel{
-		Message: "发送交易成功",
+		Message: "查询余额成功",
 		Code:    200,
 		Data: &types.BalacneResponse{
 			balance,

@@ -18,7 +18,7 @@ type rpc_service struct {
 
 func main(){
 	flag.StringVar(&SERVER_PORT, "port", "8085", "Http server port")
-	flag.StringVar(&context.SingleNode,"node","http://47.92.99.227:8888","Remote node")
+	flag.IntVar(&context.Acc,"acc",6,"token精度")
 	utils.CreateLogger()
 	flag.Parse()
 	rpc :=http.GetRPCClient()
@@ -26,6 +26,10 @@ func main(){
 		rpc.RegisterServices(value.name,value.method)
 	}
 	rpc.AddResquestAddress("http://47.92.99.227:8888")
+	rpc.AddResquestAddress("http://47.92.173.173:8888")
+	rpc.AddResquestAddress("http://47.92.105.199:8888")
+	rpc.AddResquestAddress("http://47.92.99.227:8888")
+
 	httpser := api.NewHttpServer(SERVER_PORT)
 	httpser.StartServer()
 }

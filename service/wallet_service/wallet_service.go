@@ -44,6 +44,7 @@ func SendTransaction(from, to string, value, gasPrice, gasLimit *big.Int, privat
 	if data != "" {
 		dataByte, err = hex.DecodeString(data[2:])
 		if err != nil {
+			utils.ErrorLogger("智能合约解析失败: "+err.Error())
 			return "", DataErr
 		}
 	}
@@ -53,7 +54,6 @@ func SendTransaction(from, to string, value, gasPrice, gasLimit *big.Int, privat
 		utils.ErrorLogger("SginTransaction failed: " + err.Error())
 		return "", SignError
 	}
-	//
 	txhash, err := sendTransaction(siginedTransaction)
 	if err != nil {
 		if err == BalanceError {
@@ -69,6 +69,7 @@ func SendTransaction(from, to string, value, gasPrice, gasLimit *big.Int, privat
 func CheckBalance(address string, contranctAddress string) (string,string,error) {
 	balance, err := getBalance(address)
 	if err != nil {
+		utils.ErrorLogger("Failed to get balance: "+err.Error())
 		return "","",BalanceErr
 	}
 	if contranctAddress==""{
@@ -76,6 +77,7 @@ func CheckBalance(address string, contranctAddress string) (string,string,error)
 	}
 	tokenBalance,err:=getTokenBalance(address,contranctAddress,6)
 	if err!=nil{
+		utils.ErrorLogger("Failed to get Token balance: "+err.Error())
 		return "","",err
 	}
 	return balance,tokenBalance,nil
@@ -135,7 +137,7 @@ func getTokenBalance(from, contractAddress string, acc int) (string, error) {
 }
 
 func pow(x, n int) int {
-	ret := 1 // 结果初始为0次方的值，整数0次方为1。如果是矩阵，则为单元矩阵。
+	ret := 1
 	for n != 0 {
 		if n%2 != 0 {
 			ret = ret * x

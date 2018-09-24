@@ -24,6 +24,11 @@ func ServiceFilterMapper(handler serverHandler) func(w http.ResponseWriter, requ
 }
 
 func GenerateErrResponse(write http.ResponseWriter, err error) {
+	defer func() {
+		if err:=recover();err!=nil{
+			utils.ErrorLogger(err)
+		}
+	}()
 	ErrMessage := err.Error()
 	ErrArr := strings.Split(ErrMessage, ":")
 	status, _ := strconv.Atoi(ErrArr[0])
