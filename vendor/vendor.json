@@ -21,6 +21,12 @@
 			"revisionTime": "2018-08-01T09:52:37Z"
 		},
 		{
+			"checksumSHA1": "xEHEfywV/9zZ/nPy/PJBF6xVn1o=",
+			"path": "github.com/klauspost/cpuid",
+			"revision": "e7e905edc00ea8827e58662220139109efea09db",
+			"revisionTime": "2018-04-05T13:32:22Z"
+		},
+		{
 			"checksumSHA1": "071uyK+WOfj4/M3A3tnPZQdfgYU=",
 			"path": "github.com/ofbank/lib",
 			"revision": ""

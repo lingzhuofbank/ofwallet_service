@@ -11,7 +11,7 @@ import (
    "errors"
    "fmt"
    "github.com/ethereum/go-ethereum/rlp"
-   "github.com/go-ethereum/common/hexutil"
+   "github.com/ethereum/go-ethereum/common/hexutil"
 )
 func GeneratePrivatekey()(*ecdsa.PrivateKey,error){
    privateKey,err:=ecdsa.GenerateKey(crypto.S256(),rand.Reader)
