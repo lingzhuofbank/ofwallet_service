@@ -9,6 +9,7 @@ import (
 	"github.com/ofwallet_service/utils/http"
 	"strconv"
 	"encoding/hex"
+	"github.com/ofwallet_service/context"
 )
 
 var (
@@ -75,7 +76,7 @@ func CheckBalance(address string, contranctAddress string) (string,string,error)
 	if contranctAddress==""{
 		return balance,"0",nil
 	}
-	tokenBalance,err:=getTokenBalance(address,contranctAddress,6)
+	tokenBalance,err:=getTokenBalance(address,contranctAddress,context.Acc)
 	if err!=nil{
 		utils.ErrorLogger("Failed to get Token balance: "+err.Error())
 		return "","",err
