@@ -42,12 +42,14 @@ func SendTransaction(from, to string, value, gasPrice, gasLimit *big.Int, privat
 		return "", NonceError
 	}
 	dataByte := []byte{}
-	if data != "" {
+	if data != "" &&len(data)>2{
 		dataByte, err = hex.DecodeString(data[2:])
 		if err != nil {
 			utils.ErrorLogger("智能合约解析失败: "+err.Error())
 			return "", DataErr
 		}
+	}else if data=="0x"{
+		dataByte = []byte{}
 	}
 
 	siginedTransaction, err := wallet.Sign(from, to, value, gasLimit, gasPrice, nonce, dataByte, new(big.Int).SetInt64(height), private)

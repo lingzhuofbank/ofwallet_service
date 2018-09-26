@@ -30,6 +30,7 @@ func SendTransaction(w http.ResponseWriter, r *http.Request) (*types.ResponseMod
 	if err != nil {
 		return nil, err
 	}
+
 	amount, _ := new(big.Int).SetString(transactionRequest.Value, 10)
 	GasPrice, _ := new(big.Int).SetString(transactionRequest.GasPrice, 10)
 	txhash, err := wallet_service.SendTransaction(transactionRequest.From,
