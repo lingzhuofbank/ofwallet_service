@@ -61,5 +61,10 @@ func Services() []rpc_service {
 			method:"eth_call",
 			description:"智能合约调用",
 		},
+		{
+			name:"transaction",
+			method:"ofbank_checkTrans",
+			description:"调取交易信息",
+		},
 	}
 }

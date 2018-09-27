@@ -10,6 +10,7 @@ import (
 	"strconv"
 	"encoding/hex"
 	"github.com/ofwallet_service/context"
+	"github.com/ofwallet_service/api/types"
 )
 
 var (
@@ -21,6 +22,8 @@ var (
 	SendTransactionError = errors.New("1005:发送交易失败")
 	BalanceErr           = errors.New("1006:查询余额失败")
 	DataErr              = errors.New("1007:智能合约解析失败")
+	TransactionErr              = errors.New("1008:获取交易失败")
+
 )
 
 func CreateWallet() (string, string, error) {
@@ -84,6 +87,19 @@ func CheckBalance(address string, contranctAddress string) (string,string,error)
 		return "","",err
 	}
 	return balance,tokenBalance,nil
+}
+
+func CheckTransaction(txHash string)(*types.TransactionResponse,error){
+	var transaction types.TransactionResponse
+	err:=http.GetRPCClient().Call("transaction",&transaction,txHash)
+    if err!=nil{
+		utils.ErrorLogger("Failed to get Transaction: "+err.Error())
+		return nil,TransactionErr
+	}
+	if transaction.Hash==""{
+		return nil,nil
+	}
+	return &transaction,nil
 }
 
 func getBalance(from string) (string, error) {

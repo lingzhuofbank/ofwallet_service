@@ -69,3 +69,19 @@ func CheckBalce(w http.ResponseWriter, r *http.Request) (*types.ResponseModel, e
 
 	return reponse, nil
 }
+
+func GetTransaction(w http.ResponseWriter, r *http.Request) (*types.ResponseModel, error){
+	txhash:=r.FormValue("txHash")
+	if txhash==""{
+		return nil,types.IllegalParamErr
+	}
+	transaction,err:=wallet_service.CheckTransaction(txhash)
+	if err!=nil{
+		return nil,err
+	}
+	return &types.ResponseModel{
+		Message:"获取交易信息成功",
+		Data:transaction,
+		Code:200,
+	},nil
+}

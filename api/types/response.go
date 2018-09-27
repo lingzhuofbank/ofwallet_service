@@ -15,3 +15,16 @@ type BalacneResponse struct {
 	OFBalance  string 	`json:"of_balance"`
 	TokenBalance string  `json:"token_balance"`
 }
+
+type TransactionResponse struct {
+	BlockHash string  `json:"blockHash"`
+	From      string  `json:"from"`
+	Gas       string  `json:"gas"`
+	GasPrice  string  `json:"gasPrice"`
+	Hash      string  `json:"hash"`
+	Input     string  `json:"input"`
+	Nonce     string     `json:"nonce"`
+	Timestamp string  `json:"timestamp"`
+	TxFee     string  `json:"txFee"`
+	Value     string `json:"value"`
+}

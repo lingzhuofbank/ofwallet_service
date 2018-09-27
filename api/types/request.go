@@ -19,3 +19,4 @@ type SendTransaction struct {
 	GasPrice   string
 	Data  string
 }
+

@@ -18,6 +18,7 @@ func NewHttpServer(port string) *HttpServer {
 	http.HandleFunc("/ofbank/address", filter.ServiceFilterMapper(wallet.CreateAddress))
 	http.HandleFunc("/ofbank/sendTransaction", filter.ServiceFilterMapper(wallet.SendTransaction))
 	http.HandleFunc("/ofbank/checkBalance", filter.ServiceFilterMapper(wallet.CheckBalce))
+	http.HandleFunc("/ofbank/getTransacation",filter.ServiceFilterMapper(wallet.GetTransaction))
 
 	server := new(http.Server)
 	server.Addr = ":" + port
