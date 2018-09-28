@@ -9,7 +9,6 @@ import (
    "math/big"
    "github.com/ethereum/go-ethereum/common"
    "errors"
-   "fmt"
    "github.com/ethereum/go-ethereum/rlp"
    "github.com/ethereum/go-ethereum/common/hexutil"
 )
@@ -45,7 +44,6 @@ func Sign(from,to string, amount, gasLimit, gasPrice *big.Int, nonce uint64, dat
    cbt[2] = byte(abt[2])
    cbt[4] = byte(abt[4])
 
-   fmt.Println(cbt)
 
    privateKeyD, _ := new(big.Int).SetString(prikey, 10)
    prikeyKey, err := crypto.ToECDSA(privateKeyD.Bytes())
