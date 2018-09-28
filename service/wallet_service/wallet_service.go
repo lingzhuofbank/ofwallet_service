@@ -62,6 +62,7 @@ func SendTransaction(from, to string, value, gasPrice, gasLimit *big.Int, privat
 	}
 	txhash, err := sendTransaction(siginedTransaction)
 	if err != nil {
+		utils.ErrorLogger("Failed to send Transaction: "+err.Error())
 		if err == BalanceError {
 			return "", err
 		} else {
