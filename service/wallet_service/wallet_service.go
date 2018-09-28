@@ -38,10 +38,13 @@ func CreateWallet() (string, string, error) {
 func SendTransaction(from, to string, value, gasPrice, gasLimit *big.Int, private string, data string) (string, error) {
 	height, err := GetHeight()
 	if err != nil {
+		utils.ErrorLogger("getHeight failed: " + err.Error())
 		return "", HegithError
 	}
 	nonce, err := getNonce(from)
 	if err != nil {
+		utils.ErrorLogger("getNonce failed: " + err.Error())
+
 		return "", NonceError
 	}
 	dataByte := []byte{}
