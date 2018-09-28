@@ -11,6 +11,7 @@ import (
 	"encoding/hex"
 	"github.com/ofwallet_service/context"
 	"github.com/ofwallet_service/api/types"
+	"fmt"
 )
 
 var (
@@ -42,9 +43,9 @@ func SendTransaction(from, to string, value, gasPrice, gasLimit *big.Int, privat
 		return "", HegithError
 	}
 	nonce, err := getNonce(from)
+	fmt.Println(nonce)
 	if err != nil {
 		utils.ErrorLogger("getNonce failed: " + err.Error())
-
 		return "", NonceError
 	}
 	dataByte := []byte{}
@@ -118,7 +119,7 @@ func getBalance(from string) (string, error) {
 
 func getNonce(from string) (uint64, error) {
 	var nonceString string
-	err := http.GetRPCClient().Call("nonce", &nonceString, from, "latest")
+	err := http.GetRPCClient().Call("nonce", &nonceString, from, "pending")
 	if err != nil {
 		return 0, err
 	}
